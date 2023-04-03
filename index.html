@@ -19,7 +19,7 @@
                   <div class="banner-image">
                   <p>Contagem: <span id="contador">0</span></p>   
                   </div>
-                  <h1> Contador</h1>
+                  <h1>Contador</h1>
                   <p>Comandos para a <br/>
                     Esp32</p>
                  </div>
@@ -33,7 +33,7 @@
     </main>
     <script>
       function increment(value){
-        fetch("https://rmrcunha.github.io/esp32-contador/update_counter",{
+        fetch("https://rmrcunha.github.io/esp32-contador/",{
           method: "POST",
           body: JSON.stringify({contador: value})
         })
