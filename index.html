@@ -16,18 +16,32 @@
         <article>
             <div class="container">
                 <div class="wrapper">
-                  <div class="banner-image"> </div>
+                  <div class="banner-image">
+                  <p>Contagem: <span id="contador">0</span></p>   
+                  </div>
                   <h1> Contador</h1>
                   <p>Comandos para a <br/>
                     Esp32</p>
                  </div>
                  <div class="button-wrapper"> 
-                 <button class="btn outline">ADD +10</button>
-                   <button class="btn fill">ADD +100</button>
+                 <button class="btn outline" onclick="increment(10)">ADD +10</button>
+                   <button class="btn fill" onclick="increment(10)">ADD +100</button>
                  </div>
                    </div>
                </div>
         </article>
     </main>
+    <script>
+      function increment(value){
+        fetch("https://rmrcunha.github.io/esp32-contador/update_counter",{
+          method: "POST",
+          body: JSON.stringify({contador: value})
+        })
+        .then(response =>{
+          document.getElementById("contador").innerHTML = parenInt(document.getElementById("contador").innerHTML)+value;
+        })
+        .catch(error =>console.error(error));
+      }
+    </script>
 </body>
 </html>
