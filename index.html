@@ -38,7 +38,7 @@
           body: JSON.stringify({contador: value})
         })
         .then(response =>{
-          document.getElementById("contador").innerHTML = parenInt(document.getElementById("contador").innerHTML)+value;
+          document.getElementById("contador").innerHTML = parsenInt(document.getElementById("contador").innerHTML)+value;
         })
         .catch(error =>console.error(error));
       }
