@@ -17,30 +17,25 @@
             <div class="container">
                 <div class="wrapper">
                   <div class="banner-image">
-                  <p>Contagem: <span id="contador">1</span></p>   
+                  <p>Estado do led: <span id="contador">1</span></p>   
                   </div>
-                  <h1>Contador</h1>
-                  <p>Comandos para a <br/>
-                    Esp32</p>
+                  <h1>Liga led</h1>
+                  <p></p>
                  </div>
                  <div class="button-wrapper"> 
-                 <button class="btn outline" onclick="increment(10)">ADD +10</button>
-                   <button class="btn fill" onclick="increment(10)">ADD +100</button>
+                 <button class="btn outline" onclick="increment(10)">Liga led</button>
+                   <button class="btn fill" onclick="increment(10)">Desliga Led</button>
                  </div>
                    </div>
                </div>
         </article>
     </main>
     <script>
-      function increment(value){
-        fetch("https://rmrcunha.github.io/esp32-contador/",{
-          method: "POST",
-          body: JSON.stringify({contador: value})
-        })
-        .then(response =>{
-          document.getElementById("contador").innerHTML = parsenInt(document.getElementById("contador").innerHTML)+value;
-        })
-        .catch(error =>console.error(error));
+      function ledOn(){
+        fetch('/ledOn');
+      }
+      function ledOff(){
+        fetch('/ledOn');
       }
     </script>
 </body>
